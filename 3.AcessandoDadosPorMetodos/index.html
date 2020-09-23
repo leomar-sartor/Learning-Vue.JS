@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Vue Js - Guia Completo - Aula II </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <p> {{ mensagem}} </p>
+      <p> Curso: {{ curso }} com Instrutor: {{ nomeDoInstrutor() }}</p>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                curso: 'Vue.Js',
+                instrutor: 'Leomar Vaz Sartor'
+            },
+            methods:{
+                nomeDoInstrutor: function(){
+                    return this.instrutor;
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

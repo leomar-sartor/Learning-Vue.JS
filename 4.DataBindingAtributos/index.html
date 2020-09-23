@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Vue Js - Guia Completo - Aula II </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <!-- Interpolação de Strings -->
+      <p> Curso: {{ curso }} </p>
+      <!-- Interpolação / Data binding de Atributo (Diretiva v-bind) -->
+      <a v-bind:href="docs"> VueJs </a>
+      <!-- (Diretiva v-text) -->
+      <p> Instrutor: <span v-text="instrutor"></span> </p>
+
+      <p v-once> Nome Completo: {{ nome}} </p>
+      <p> Nome: {{ getNome() }} </p>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                nome: 'Leomar Vaz Sartor',
+                curso: 'Vue.Js',
+                docs: 'https://vuejs.org',
+                instrutor: 'Leomar Vaz Sartor'
+            },
+            methods:{
+                getNome: function(){
+                    this.nome = 'Ramoel';
+                    return this.nome;
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
