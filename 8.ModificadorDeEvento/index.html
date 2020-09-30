@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Vue Js - Guia Completo - Aula II </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <!-- Padrão: ocorre propagação de evento em elemento filho para o Pai -->
+        <!-- JavaScript: para anular o comportamento podemos usar 'event.stopPropagation();' -->
+        <!-- VueJs: stop após definição do evento' -->
+        <p v-on:click="clicando('parágrafo', $event)">
+             Teste do Framework Vue.Js
+            <button v-on:click.stop="clicando('botão', $event)"> Clique </button>
+        </p>
+
+        <form>
+            <input type="text">
+            <!-- Recarrega/Refresh na Página-->
+            <button type="submit" v-on:click="enviarDados"> Enviar SEM Modificador</button>
+            <!-- Encadeamento de Modificador de Eventos (Segue a sequência definida)-->
+            <button type="submit" v-on:click.prevent.stop="enviarDados"> Enviar COM Modificador</button>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            methods:{
+                clicando: function(argumento, event){
+                    //event.stopPropagation();
+                    console.log(event.type, ':', argumento);
+                },
+                enviarDados: function(event){
+                    console.log('Dados Enviados!!!');
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

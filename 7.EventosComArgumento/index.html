@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Vue Js - Guia Completo - Aula II </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <input v-on:blur="exibirConteudo('O Conteúdo é: ', $event)">
+        <p>{{ texto }}</p>
+
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                texto: ''
+            },
+            methods:{
+                exibirConteudo: function(variavel, event){
+                    this.texto = variavel + event.target.value;
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
