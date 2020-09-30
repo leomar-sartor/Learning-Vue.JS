@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Vue Js - Guia Completo - Aula II </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <!-- Normal -->
+        <a v-bind:href="docs">Vue Js</a>
+        <br>
+        <button v-on:click="acionouClique">Clique</button>        
+
+        <!-- Com Atalhos -->
+        <hr>
+        <a :href="docs">Vue Js</a>
+        <br>
+        <button @click="acionouClique">Clique</button>        
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                docs: 'https://vuejs.org'
+            },
+            methods: {
+                acionouClique: function(event){
+                    console.log('Evento ', event.type);
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
