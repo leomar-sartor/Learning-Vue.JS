@@ -1,0 +1,9 @@
+> Comando
+  - (code .) na pasta onde quer abrir a aplicação;
+  - (html:5 + Tab) criar estrutura básica para html;
+  - ALt + L / Alt + O -> Abrir Live Server;
+  - Ctrl+Shift+Alt+ Seta: replica a linha corrente;
+
+> Plugins
+  - Vetur: 
+  - Vue Theme:
