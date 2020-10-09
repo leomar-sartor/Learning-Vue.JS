@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Vue Js - Guia Completo - Aula II </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <!-- Watchers: são observadores - forma genérica de reagir a mudanças no dados -->
+        <p> Nome : {{ nomeCompleto }} </p>
+        <button @click="alterarNomes">Alterar Nomes</button>
+
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                primeiroNome: 'Leomar',
+                ultimoNome: 'Sartor',
+                //nomeCompleto: 'Leomar Sartor'
+            },
+            //Descrever qual propriedade eu quero ouvir alteração
+            //São alternativas aos Computeds que são sempre preferiveis
+            // watch:{
+            //      primeiroNome: function(novoPrimeiroNome, antigoPrimeiroNome){
+            //         console.log('Antigo Primeiro Nome:', antigoPrimeiroNome);
+            //         console.log('Novo Primeiro Nome:', novoPrimeiroNome);
+            //         this.nomeCompleto = novoPrimeiroNome + ' ' + this.ultimoNome;
+            //      },
+            //      ultimoNome: function(novoUltimoNome, antigoUltimoNome){
+            //         console.log('Antigo Ultimo Nome:', antigoUltimoNome);
+            //         console.log('Novo Ultimo Nome:', novoUltimoNome);
+            //         this.nomeCompleto = this.primeiroNome + ' ' + novoUltimoNome;
+            //     }
+            // },
+            //Posso fazer o mesmo acima com apenas o Computed e sem a propriedade nomeCompleto
+            computed:{
+                nomeCompleto: function(){
+                    return this.primeiroNome + ' ' + this.ultimoNome;
+                }
+            },
+            methods:{
+                alterarNomes: function(){
+                    this.primeiroNome = 'Sartor';
+                    this.ultimoNome = 'Leomar';
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

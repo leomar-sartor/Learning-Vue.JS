@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Vue Js - Guia Completo - Aula II </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <!-- Devem ser usado quando precisar executar uma operação assíncrona ou
+             quando não precisar retornar nenhum valor -->
+        <p> Nome : {{ nomeCompleto }} </p>
+        <button @click="alterarNome">Alterar Nome</button>
+
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                nomeCompleto: 'Leomar Sartor'
+            },
+            watch:{
+                 nomeCompleto: function(novoNomeCompleto, antigoNomeCompleto){
+                    var self = this;
+                    setTimeout(function() {
+                        console.log('Antigo Nome Completo:', antigoNomeCompleto);
+                        console.log('Novo Nome Completo:', novoNomeCompleto);
+                        // Apenas desta maneira não irá funcionar porque está função
+                        // é o que chamamos de CLOSURE no javascript, ou seja,
+                        // a função tem seu próprio escopo, por isso utilizamos SELF 
+                        // (this.nomeCompleto = 'Nome Resetado!');
+                        self.nomeCompleto = 'Nome Resetado!';
+                    }, 3000);
+                 }
+            },
+            methods:{
+                alterarNome: function(event){
+                    this.nomeCompleto = 'Sartor Leomar';
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

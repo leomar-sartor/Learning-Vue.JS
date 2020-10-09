@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Vue Js - Guia Completo - Aula II </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <!-- Computed properties: utilizar sempre que possível, são cacheadas 
+        de acordo com suas dependências -->
+        <p> Nome original: {{ texto }} </p>
+        <!-- Não preciso informar (), pois o vue faz um getter -->
+        <p> Nome invertido (Computed): {{ inverterTextoComputed }} </p>
+        <!-- Preciso informar '()' -->
+        <p> Nome invertido (Method): {{ inverterTextoMethod() }} </p>
+        <!-- Exemplo de cacheamento - na primeira vez executa ambas e após somente o method
+             não havendo mudança do valor da propriedade -->
+        <p> Autor: {{ nomeInteiro ? 'Leomar Vaz Sartor' : 'Leomar' }} </p>
+        <button @click="nomeInteiro = !nomeInteiro"> Alterar nome do Autor </button>
+        <br>
+
+        <input @keyup.enter="alterarTexto"> 
+
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                texto: 'Estudo de Vue Js',
+                nomeInteiro: false
+            },
+            //Retornam valor Síncrono
+            //Normalmente trabalha com dependência com os dados
+            computed:{
+                //Só vai recachear se mudar o valor da propriedade 'Texto'
+                inverterTextoComputed: function(){
+                    console.log('Computed!');
+                    return this.texto.split('').reverse().join('');
+                }
+            },
+            methods:{
+                //Cahamado em cada nova reenderização
+                alterarTexto: function(event){
+                    this.texto = event.target.value; 
+                },
+                inverterTextoMethod: function(){
+                    console.log('Method!');
+                    return this.texto.split('').reverse().join('');
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
