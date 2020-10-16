@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Vue Js - Guia Completo - Aula II </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <!-- Verboso/trabalhoso -->
+        <input :value="nome" @input="nome  = $event.target.value">
+        <!-- Simples/Enxuto -->
+        <input v-model="nome">
+
+        <p> Nome : {{ nome }} </p>
+
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                nome: 'Leomar'
+            }
+        });
+    </script>
+
+</body>
+</html>
