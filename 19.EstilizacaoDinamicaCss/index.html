@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vue JS - Guia Completo</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .caixa{
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            margin-right: 10px;
+            background-color: gray;
+        }
+        .coral{
+            background-color: lightcoral;
+        }
+        .verde{
+            background-color: lightgreen;
+        }
+        .azul{
+            background-color: lightblue;
+        }
+        .circulo{
+            border-radius: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="app">
+        <!-- Vue é inteligente pra manter classes estáticas -->
+        <!-- Na classe dinâmica recebe Objeto Java Script
+             onde as chaves são classes css que eu quero aplicar 
+             e o valor em cada chave indica se o valor vai ser aplciado ou não -->
+        <div
+         class="caixa"
+         :class="{ coral: aplicarClasse }"
+         @click="aplicarClasse = !aplicarClasse">
+        </div>
+
+        <div 
+            class="caixa"
+            :class="nomeDaClasse">
+        </div>
+        <input v-model="nomeDaClasse" type="text" placeholder="Nome Da Classe CSS">
+        
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data:{
+                aplicarClasse: false,
+                nomeDaClasse: ''
+            }
+        });
+    </script>
+</body>
+</html>
