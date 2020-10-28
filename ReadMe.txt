@@ -8,3 +8,19 @@
 > Plugins
   - Vetur: 
   - Vue Theme:
+  - Live Server
+  - Material Theme Icon e vc-code icons
+  
+> Configuration
+{
+    "workbench.colorTheme": "Vue Theme",
+    "editor.fontFamily": "'Cascadia Code', monospace",
+    "editor.fontSize": 17,
+    "workbench.colorCustomizations": {
+        //"editor.lineHighlightBackground": "#1e88e5",
+        "editor.selectionBackground": "#ff8a65",
+        //"editor.wordHighlightBackground": "#00e5ff",
+        "editorCursor.foreground": "#00e5ff"
+    },
+    "workbench.iconTheme": "vscode-icons",
+}
